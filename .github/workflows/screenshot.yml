@@ -1,0 +1,26 @@
+name: Generate Screenshot
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'  # Setiap 30 menit
+  workflow_dispatch:        # Tambahan: bisa dijalankan manual
+
+jobs:
+  screenshot:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v3
+
+    - name: Download screenshot
+      run: |
+        curl "https://image.thum.io/get/width/1280/https://krayondk.github.io/log/" --output result.png
+
+    - name: Commit and push result.png
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git add result.png
+        git commit -m "Auto-update result.png screenshot" || echo "No changes to commit"
+        git push

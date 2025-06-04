@@ -2,11 +2,11 @@ name: Generate Screenshot
 
 on:
   schedule:
-    - cron: '*/15 5-17 * * 1-5'
+    - cron: '*/15 5-17 * * 1-5'  # Tiap 15 menit dari jam 5–17, Senin–Jumat
   workflow_dispatch:
 
 permissions:
-  contents: write  # Wajib untuk bisa push file
+  contents: write  # Wajib agar bisa commit & push
 
 jobs:
   screenshot:
@@ -16,12 +16,16 @@ jobs:
     - name: Checkout repo
       uses: actions/checkout@v3
 
+    - name: Buat folder files jika belum ada
+      run: mkdir -p files
+
     - name: Download screenshot
       run: |
-        curl "https://image.thum.io/get/width/1280/https://krayondk.github.io/log/" --output result.png
+        curl "https://image.thum.io/get/width/1280/https://krayondk.github.io/log/" --output files/result.png
 
-    - name: Commit and push result.png
+    - name: Commit and push result.png ke folder files
       uses: EndBug/add-and-commit@v9
       with:
         message: "Auto-update result.png screenshot"
-        add: 'result.png'
+        add: 'files/result.png'
+        force: true  # Paksa commit walau gambar terlihat sama

@@ -2,8 +2,11 @@ name: Generate Screenshot
 
 on:
   schedule:
-    - cron: '*/15 5-17 * * 1-5'  # Tiap 15 menit, jam 05:00–17:59, Senin–Jumat
+    - cron: '*/15 5-17 * * 1-5'
   workflow_dispatch:
+
+permissions:
+  contents: write  # Wajib untuk bisa push file
 
 jobs:
   screenshot:
@@ -18,10 +21,7 @@ jobs:
         curl "https://image.thum.io/get/width/1280/https://krayondk.github.io/log/" --output result.png
 
     - name: Commit and push result.png
-      run: |
-        git config --global user.name "GitHub Actions"
-        git config --global user.email "actions@github.com"
-        git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
-        git add result.png
-        git commit -m "Auto-update result.png screenshot" || echo "No changes to commit"
-        git push origin HEAD
+      uses: EndBug/add-and-commit@v9
+      with:
+        message: "Auto-update result.png screenshot"
+        add: 'result.png'

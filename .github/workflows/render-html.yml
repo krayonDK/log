@@ -23,7 +23,7 @@ jobs:
       - name: Render HTML to PNG
         run: |
           mkdir -p files
-          wkhtmltoimage --width 320 --height 180 --quality 100 index.html files/output.png
+          wkhtmltoimage --width 320 --height 1200 --quality 100 index.html files/output.png
 
       - name: Commit rendered PNG
         run: |

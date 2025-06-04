@@ -17,20 +17,13 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Install wkhtmltoimage and ImageMagick
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y wkhtmltopdf imagemagick
+      - name: Install wkhtmltoimage
+        run: sudo apt-get install -y wkhtmltopdf
 
-      - name: Render HTML to high-res PNG
+      - name: Render HTML to PNG
         run: |
           mkdir -p files
-          wkhtmltoimage --width 1920 --height 1080 --quality 100 index.html files/temp_output.png
-
-      - name: Resize PNG to 320x180
-        run: |
-          convert files/temp_output.png -resize 320x180 files/output.png
-          rm files/temp_output.png
+          wkhtmltoimage --width 320 --height 180 --quality 100 index.html files/output.png
 
       - name: Commit rendered PNG
         run: |

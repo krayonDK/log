@@ -24,9 +24,9 @@ jobs:
         curl "https://image.thum.io/get/width/4800/https://krayondk.github.io/log/" --output files/result.png
 
     - name: Force commit and push result.png ke folder files
-      uses: EndBug/add-and-commit@v9
-      with:
-        message: "Auto-update result.png screenshot"
-        add: 'files/result.png'
-        force: true       # 🧠 Ini wajib agar file selalu ditulis ulang
-        default_author: github_actions
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        git add files/result.png
+        git commit -m "Auto-update result.png screenshot" || echo "Nothing to commit"
+        git push origin HEAD --force

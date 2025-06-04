@@ -1,0 +1,33 @@
+name: Render Presensi
+
+on:
+  schedule:
+    - cron: '*/10 * * * *'  # Setiap 10 menit
+  workflow_dispatch:         # Bisa juga dijalankan manual
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clone repo
+        uses: actions/checkout@v3
+
+      - name: Install dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y chromium-browser
+          pip install html2image
+
+      - name: Jalankan render_presensi.py
+        run: |
+          mkdir -p .cache
+          python render_presensi.py
+
+      - name: Commit dan push hasil
+        run: |
+          git config --global user.name "GitHub Action"
+          git config --global user.email "action@github.com"
+          git add presensi.png
+          git commit -m "Update presensi image"
+          git push || echo "Tidak ada perubahan, skip push"

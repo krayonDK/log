@@ -18,12 +18,10 @@ jobs:
         curl "https://image.thum.io/get/width/1280/https://krayondk.github.io/log/" --output result.png
 
     - name: Commit and push result.png
-      env:
-        TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         git config --global user.name "GitHub Actions"
         git config --global user.email "actions@github.com"
-        git remote set-url origin https://x-access-token:${TOKEN}@github.com/${{ github.repository }}
+        git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
         git add result.png
         git commit -m "Auto-update result.png screenshot" || echo "No changes to commit"
         git push origin HEAD

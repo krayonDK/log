@@ -2,7 +2,7 @@ name: Generate Screenshot
 
 on:
   schedule:
-    - cron: '*/15 5-19 * * 1-5'  # Tiap 15 menit, jam 05.00–17.59, Senin–Jumat
+    - cron: '*/15 5-17 * * 1-5'  # Tiap 15 menit, jam 05:00–17:59, Senin–Jumat
   workflow_dispatch:
 
 jobs:

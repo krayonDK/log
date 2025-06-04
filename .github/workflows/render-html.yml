@@ -1,0 +1,31 @@
+name: Render HTML to PNG
+
+on:
+  push:
+    paths:
+      - 'index.html'
+      - '.github/workflows/render-html.yml'
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Install wkhtmltoimage
+        run: sudo apt-get install -y wkhtmltopdf
+
+      - name: Render HTML to PNG
+        run: |
+          mkdir -p files
+          wkhtmltoimage index.html files/output.png
+
+      - name: Commit rendered PNG
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add files/output.png
+          git commit -m "Render index.html to output.png [skip ci]" || echo "No changes to commit"
+          git push

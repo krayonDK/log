@@ -21,7 +21,7 @@ jobs:
 
     - name: Download screenshot
       run: |
-        curl "https://image.thum.io/get/width/600/crop/https://krayondk.github.io/log/" --output files/result.png
+        curl "https://image.thum.io/get/width/4800/crop/https://krayondk.github.io/log/" --output files/result.png
 
     - name: Force commit and push result.png ke folder files
       uses: EndBug/add-and-commit@v9

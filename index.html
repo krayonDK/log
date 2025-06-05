@@ -45,7 +45,6 @@
     }
 
     .status-left {
-      color: #de1212;
       font-weight: bold;
       font-size: 15px;
       line-height: 1.2;
@@ -117,6 +116,15 @@
       font-weight: bold;
       color: #333;
     }
+
+    /* Tambahan: warna status */
+    .status-memenuhi {
+      color: #0c9e1e; /* Hijau */
+    }
+
+    .status-belum {
+      color: #de1212; /* Merah */
+    }
   </style>
 </head>
 <body>
@@ -125,7 +133,7 @@
       <div class="status-left"><br>Belum Memenuhi Jam Kerja</div>
       <div class="status-right">
         <div class="day">Kamis</div>
-        <div class="time">11:30</div>
+        <div class="time">11:37</div>
       </div>
     </div>
     <hr>
@@ -146,5 +154,17 @@
       </div>
     </div>
   </div>
+
+  <script>
+    const statusElem = document.querySelector('.status-left');
+    if (statusElem) {
+      const statusText = statusElem.textContent.trim();
+      if (statusText === "Telah Memenuhi Jam Kerja") {
+        statusElem.classList.add("status-memenuhi");
+      } else if (statusText === "Belum Memenuhi Jam Kerja") {
+        statusElem.classList.add("status-belum");
+      }
+    }
+  </script>
 </body>
 </html>

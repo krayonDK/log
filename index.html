@@ -130,7 +130,7 @@
 <body>
   <div class="card">
     <div class="status">
-      <div class="status-left"><br>Telah Memenuhi Jam Kerja</div>
+      <div class="status-left"><br>Memenuhi Jam Kerja</div>
       <div class="status-right">
         <div class="day">Kamis</div>
         <div class="time">19:36</div>
@@ -159,7 +159,7 @@
     const statusElem = document.querySelector('.status-left');
     if (statusElem) {
       const statusText = statusElem.textContent.trim();
-      if (statusText === "Telah Memenuhi Jam Kerja") {
+      if (statusText === "Memenuhi Jam Kerja") {
         statusElem.classList.add("status-memenuhi");
       } else if (statusText === "Belum Memenuhi Jam Kerja") {
         statusElem.classList.add("status-belum");

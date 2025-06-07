@@ -2,54 +2,47 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=996, height=1536, user-scalable=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Presensi Logbook DJP</title>
   <style>
     html, body {
       margin: 0;
       padding: 0;
-      width: 996px;
-      height: 1536px;
+      width: 100vw;
+      height: 100vh;
       overflow: hidden;
       font-family: 'Segoe UI', sans-serif;
-      background: auto;
-    }
-
-    body {
-      position: fixed;
-      top: 0;
-      left: 0;
+      background: #000; /* fallback warna jika gambar gagal load */
     }
 
     .card {
-      width: 320px;
-      height: 180px;
+      width: 100vw;
+      height: 100vh;
       background-image: url('https://raw.githubusercontent.com/krayonDK/log/refs/heads/main/files/bg.png');
       background-size: cover;
       background-position: center center;
       background-repeat: no-repeat;
-      border-radius: 15px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      padding: 15px 30px;
+      padding: 20px 40px;
       box-sizing: border-box;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      border-radius: 0;
+      box-shadow: none;
     }
 
     .status {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      margin-bottom: 6px;
+      margin-bottom: 10px;
     }
 
     .status-left {
       font-weight: bold;
-      font-size: 15px;
-      line-height: 1.2;
-      width: 200px;
-      flex-shrink: 0;
+      font-size: 2.5vh;
+      line-height: 1.3;
+      width: 60%;
       padding-right: 10px;
     }
 
@@ -60,30 +53,29 @@
 
     .status-right .day {
       font-weight: 600;
-      font-size: 17px;
+      font-size: 2.5vh;
     }
 
     .status-right .time {
-      font-size: 19px;
+      font-size: 3vh;
       font-weight: bold;
     }
 
     .status-right .date {
-      font-size: 12px;
+      font-size: 1.8vh;
       color: #666;
     }
 
     hr {
       border: none;
       border-top: 2px solid rgba(20, 36, 28, 0.5);
-      margin: 7px 0;
+      margin: 10px 0;
     }
 
     .time-info {
       display: flex;
       justify-content: space-around;
       align-items: center;
-      margin-top: 0px;
       flex-grow: 1;
     }
 
@@ -91,12 +83,12 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 1px;
+      gap: 5px;
     }
 
     .icon {
-      width: 30px;
-      height: 30px;
+      width: 6vh;
+      height: 6vh;
     }
 
     .entry-text, .exit-text {
@@ -106,24 +98,22 @@
     }
 
     .label {
-      font-size: 13px;
+      font-size: 2vh;
       color: #555;
-      margin-bottom: 0px;
     }
 
     .time {
-      font-size: 30px;
+      font-size: 4vh;
       font-weight: bold;
       color: #333;
     }
 
-    /* Tambahan: warna status */
     .status-memenuhi {
-      color: #0c9e1e; /* Hijau */
+      color: #0c9e1e;
     }
 
     .status-belum {
-      color: #de1212; /* Merah */
+      color: #de1212;
     }
   </style>
 </head>
@@ -133,7 +123,7 @@
       <div class="status-left"><br>Belum Memenuhi Jam Kerja</div>
       <div class="status-right">
         <div class="day">Sabtu</div>
-        <div class="time">22:47</div>
+        <div class="time">23:01</div>
       </div>
     </div>
     <hr>

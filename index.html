@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=320, height=180, user-scalable=no">
+  <meta name="viewport" content="width=320, height=180, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Presensi Mobile Widget</title>
   <style>
     html, body {
@@ -13,12 +13,6 @@
       overflow: hidden;
       font-family: 'Segoe UI', sans-serif;
       background: none;
-    }
-
-    body {
-      position: fixed;
-      top: 0;
-      left: 0;
     }
 
     .card {
@@ -83,7 +77,6 @@
       display: flex;
       justify-content: space-around;
       align-items: center;
-      margin-top: 0px;
       flex-grow: 1;
     }
 
@@ -115,15 +108,16 @@
       font-size: 30px;
       font-weight: bold;
       color: #333;
+      padding: 4px 0; /* Padding atas bawah ditambahkan di sini */
     }
 
-    /* Tambahan: warna status */
+    /* Warna status */
     .status-memenuhi {
-      color: #0c9e1e; /* Hijau */
+      color: #0c9e1e;
     }
 
     .status-belum {
-      color: #de1212; /* Merah */
+      color: #de1212;
     }
   </style>
 </head>
@@ -133,7 +127,7 @@
       <div class="status-left"><br>Belum Memenuhi Jam Kerja</div>
       <div class="status-right">
         <div class="day">Minggu</div>
-        <div class="time">15:56</div>
+        <div class="time">16:02</div>
       </div>
     </div>
     <hr>

@@ -1,49 +1,56 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, height=457 initial-scale=5.0" />
-  <title>Presensi Logbook DJP</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=320, height=180, user-scalable=no">
+  <title>Presensi Mobile Widget</title>
   <style>
     html, body {
       margin: 0;
       padding: 0;
-      width: 100vw;
-      height: 457px;
+      width: 320px;
+      height: 180px;
       overflow: hidden;
       font-family: 'Segoe UI', sans-serif;
-      background: #000;
+      background: none;
+    }
+
+    body {
+      position: fixed;
+      top: 0;
+      left: 0;
     }
 
     .card {
-      width: 100vw;
-      height: 100vh;
+      width: 320px;
+      height: 180px;
       background-image: url('https://raw.githubusercontent.com/krayonDK/log/refs/heads/main/files/bg.png');
-      background-size: 100% 100%;
-      background-position: center;
+      background-size: cover;
+      background-position: center center;
       background-repeat: no-repeat;
-      padding: 50px 40px 120px 40px;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 15px 30px;
       box-sizing: border-box;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      border-radius: 0;
-      box-shadow: none;
     }
 
     .status {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      margin-bottom: 1vh;
+      margin-bottom: 6px;
     }
 
     .status-left {
       font-weight: bold;
-      font-size: 30px;
-      line-height: 1.4;
-      width: 60vw;
-      padding-right: 2vw;
+      font-size: 15px;
+      line-height: 1.2;
+      width: 200px;
+      flex-shrink: 0;
+      padding-right: 10px;
     }
 
     .status-right {
@@ -53,29 +60,30 @@
 
     .status-right .day {
       font-weight: 600;
-      font-size: 20px;
+      font-size: 17px;
     }
 
     .status-right .time {
-      font-size: 20px;
+      font-size: 19px;
       font-weight: bold;
     }
 
     .status-right .date {
-      font-size: 1.5vh;
+      font-size: 12px;
       color: #666;
     }
 
     hr {
       border: none;
-      border-top: 0.5vh solid rgba(20, 36, 28, 0.5);
-      margin: 10px;
+      border-top: 2px solid rgba(20, 36, 28, 0.5);
+      margin: 7px 0;
     }
 
     .time-info {
       display: flex;
       justify-content: space-around;
       align-items: center;
+      margin-top: 0px;
       flex-grow: 1;
     }
 
@@ -83,12 +91,12 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 10px;
+      gap: 1px;
     }
 
     .icon {
-      width: 6vh;
-      height: 6vh;
+      width: 30px;
+      height: 30px;
     }
 
     .entry-text, .exit-text {
@@ -98,24 +106,24 @@
     }
 
     .label {
-      font-size: 30px;
+      font-size: 13px;
       color: #555;
+      margin-bottom: 0px;
     }
 
     .time {
-  		font-size: 50px;
-  		font-weight: bold;
-  		color: #333;
-  		padding-top: 20px;
-  		padding-bottom: 20px;
-	}
+      font-size: 30px;
+      font-weight: bold;
+      color: #333;
+    }
 
+    /* Tambahan: warna status */
     .status-memenuhi {
-      color: #0c9e1e;
+      color: #0c9e1e; /* Hijau */
     }
 
     .status-belum {
-      color: #de1212;
+      color: #de1212; /* Merah */
     }
   </style>
 </head>
@@ -125,24 +133,24 @@
       <div class="status-left"><br>Belum Memenuhi Jam Kerja</div>
       <div class="status-right">
         <div class="day">Minggu</div>
-        <div class="time">15:50</div>
+        <div class="time">15:56</div>
       </div>
     </div>
-    <hr />
+    <hr>
     <div class="time-info">
       <div class="entry">
         <div class="entry-text">
           <div class="label">Masuk</div>
           <div class="time">-</div>
         </div>
-        <img class="icon" src="https://raw.githubusercontent.com/krayonDK/log/refs/heads/main/files/in.png" alt="Masuk" />
+        <img class="icon" src="https://raw.githubusercontent.com/krayonDK/log/refs/heads/main/files/in.png" alt="Masuk">
       </div>
       <div class="exit">
         <div class="exit-text">
           <div class="label">Keluar</div>
           <div class="time">-</div>
         </div>
-        <img class="icon" src="https://raw.githubusercontent.com/krayonDK/log/refs/heads/main/files/out.png" alt="Keluar" />
+        <img class="icon" src="https://raw.githubusercontent.com/krayonDK/log/refs/heads/main/files/out.png" alt="Keluar">
       </div>
     </div>
   </div>

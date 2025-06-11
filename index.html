@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=320, height=180, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=320, height=180, user-scalable=no">
   <title>Presensi Mobile Widget</title>
   <style>
     html, body {
@@ -13,6 +13,12 @@
       overflow: hidden;
       font-family: 'Segoe UI', sans-serif;
       background: none;
+    }
+
+    body {
+      position: fixed;
+      top: 0;
+      left: 0;
     }
 
     .card {
@@ -77,6 +83,7 @@
       display: flex;
       justify-content: space-around;
       align-items: center;
+      margin-top: 0px;
       flex-grow: 1;
     }
 
@@ -108,16 +115,15 @@
       font-size: 30px;
       font-weight: bold;
       color: #333;
-      padding: 4px 0; /* Padding atas bawah ditambahkan di sini */
     }
 
-    /* Warna status */
+    /* Tambahan: warna status */
     .status-memenuhi {
-      color: #0c9e1e;
+      color: #0c9e1e; /* Hijau */
     }
 
     .status-belum {
-      color: #de1212;
+      color: #de1212; /* Merah */
     }
   </style>
 </head>

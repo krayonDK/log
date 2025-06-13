@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=320, height=180, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=320, height=180, user-scalable=yes">
   <title>Presensi Mobile Widget</title>
   <style>
     html, body {
@@ -13,6 +13,12 @@
       overflow: hidden;
       font-family: 'Segoe UI', sans-serif;
       background: none;
+    }
+
+    body {
+      position: fixed;
+      top: 0;
+      left: 0;
     }
 
     .card {
@@ -77,6 +83,7 @@
       display: flex;
       justify-content: space-around;
       align-items: center;
+      margin-top: 0px;
       flex-grow: 1;
     }
 
@@ -108,26 +115,25 @@
       font-size: 30px;
       font-weight: bold;
       color: #333;
-      padding: 4px 0; /* Padding atas bawah ditambahkan di sini */
     }
 
-    /* Warna status */
+    /* Tambahan: warna status */
     .status-memenuhi {
-      color: #0c9e1e;
+      color: #0c9e1e; /* Hijau */
     }
 
     .status-belum {
-      color: #de1212;
+      color: #de1212; /* Merah */
     }
   </style>
 </head>
 <body>
   <div class="card">
     <div class="status">
-      <div class="status-left"><br>Telah Memenuhi Jam Kerja</div>
+      <div class="status-left"><br>Belum Memenuhi Jam Kerja</div>
       <div class="status-right">
-        <div class="day">Rabu</div>
-        <div class="time">19:39</div>
+        <div class="day">Jumat</div>
+        <div class="time">15:30</div>
       </div>
     </div>
     <hr>
@@ -135,14 +141,14 @@
       <div class="entry">
         <div class="entry-text">
           <div class="label">Masuk</div>
-          <div class="time">07:23</div>
+          <div class="time">07:49</div>
         </div>
         <img class="icon" src="https://raw.githubusercontent.com/krayonDK/log/refs/heads/main/files/in.png" alt="Masuk">
       </div>
       <div class="exit">
         <div class="exit-text">
           <div class="label">Keluar</div>
-          <div class="time">17:03</div>
+          <div class="time">-</div>
         </div>
         <img class="icon" src="https://raw.githubusercontent.com/krayonDK/log/refs/heads/main/files/out.png" alt="Keluar">
       </div>

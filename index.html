@@ -2,30 +2,25 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=2000, height=900, user-scalable=yes">
-  <title>Presensi Mobile Widget Lebar</title>
+  <title>Presensi Widget Fixed Size</title>
   <style>
     html, body {
       margin: 0;
       padding: 0;
+      width: 2000px;
+      height: 900px;
       overflow: hidden;
       font-family: 'Segoe UI', sans-serif;
-      background: none;
-    }
-
-    body {
-      display: inline-block;
+      background: url('https://raw.githubusercontent.com/krayonDK/log/refs/heads/main/files/bg.png') no-repeat center center;
+      background-size: cover;
     }
 
     .card {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 2000px;
       height: 900px;
-      background-image: url('https://raw.githubusercontent.com/krayonDK/log/refs/heads/main/files/bg.png');
-      background-size: cover;
-      background-position: center center;
-      background-repeat: no-repeat;
-      border-radius: 0px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.1);
       padding: 75px 150px;
       box-sizing: border-box;
       display: flex;
@@ -36,16 +31,13 @@
     .status {
       display: flex;
       justify-content: space-between;
-      align-items: flex-start;
       margin-bottom: 30px;
     }
 
     .status-left {
       font-weight: bold;
       font-size: 75px;
-      line-height: 1.2;
       width: 1200px;
-      flex-shrink: 0;
       padding-right: 50px;
     }
 
@@ -64,11 +56,6 @@
       font-weight: bold;
     }
 
-    .status-right .date {
-      font-size: 60px;
-      color: #666;
-    }
-
     hr {
       border: none;
       border-top: 10px solid rgba(20, 36, 28, 0.5);
@@ -79,8 +66,6 @@
       display: flex;
       justify-content: space-around;
       align-items: center;
-      margin-top: 0px;
-      flex-grow: 1;
     }
 
     .entry, .exit {
@@ -95,12 +80,6 @@
       height: 150px;
     }
 
-    .entry-text, .exit-text {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
     .label {
       font-size: 65px;
       color: #555;
@@ -113,13 +92,8 @@
       color: #333;
     }
 
-    .status-memenuhi {
-      color: #0c9e1e;
-    }
-
-    .status-belum {
-      color: #de1212;
-    }
+    .status-memenuhi { color: #0c9e1e; }
+    .status-belum { color: #de1212; }
   </style>
 </head>
 <body>
@@ -128,23 +102,19 @@
       <div class="status-left"><br>Belum Memenuhi Jam Kerja</div>
       <div class="status-right">
         <div class="day">Jumat</div>
-        <div class="time">16:47</div>
+        <div class="time">16:53</div>
       </div>
     </div>
     <hr>
     <div class="time-info">
       <div class="entry">
-        <div class="entry-text">
-          <div class="label">Masuk</div>
-          <div class="time">07:39</div>
-        </div>
+        <div class="label">Masuk</div>
+        <div class="time">07:39</div>
         <img class="icon" src="https://raw.githubusercontent.com/krayonDK/log/refs/heads/main/files/in.png" alt="Masuk">
       </div>
       <div class="exit">
-        <div class="exit-text">
-          <div class="label">Keluar</div>
-          <div class="time">-</div>
-        </div>
+        <div class="label">Keluar</div>
+        <div class="time">-</div>
         <img class="icon" src="https://raw.githubusercontent.com/krayonDK/log/refs/heads/main/files/out.png" alt="Keluar">
       </div>
     </div>

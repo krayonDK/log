@@ -23,7 +23,8 @@ jobs:
       - name: Render HTML to PNG
         run: |
           mkdir -p files
-          wkhtmltoimage --zoom 5 index.html files/output.png
+          # Render dengan ukuran fixed 320x180, zoom 2x supaya lebih tajam
+          wkhtmltoimage --width 320 --height 180 --zoom 2 index.html files/output.png
 
       - name: Commit rendered PNG
         run: |

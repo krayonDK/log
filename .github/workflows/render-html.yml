@@ -3,7 +3,7 @@ name: Render HTML to PNG
 on:
   push:
     paths:
-      - 'index2.html'
+      - 'index.html'
       - '.github/workflows/render-html.yml'
 
 permissions:
